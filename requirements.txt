@@ -1,0 +1,40 @@
+# Requirements for CAS Digital LifeScience
+# Pip-installable packages (names used on PyPI)
+numpy
+pandas
+scipy
+matplotlib
+seaborn
+plotly
+altair
+biopython
+scanpy
+scikit-bio
+deepchem
+biotite
+scikit-learn
+tensorflow
+keras
+torch
+snakemake
+rpy2
+pingouin
+statsmodels
+beautifulsoup4
+sqlalchemy
+opencv-python
+gseapy
+MDAnalysis
+pyqtgraph
+
+# Notes:
+# - bioconda is a conda channel (use conda/bioconda)
+# - galaxy is a platform, not a simple pip package
+# - pysam, deeptools, etc. may require system libs (htslib)
+#
+# NOTE: pysam and deeptools are intentionally left out of the pip
+# requirements for this Windows/venv project because they require
+# native dependencies (htslib, deeptoolsintervals) that are not
+# available as pip-installable wheels on Windows. To use those
+# packages install them in a Linux-based conda environment (WSL2 or
+# Docker) from the conda-forge/bioconda channels.
