@@ -51,3 +51,4 @@ try:
 except Exception:
     print('PlotWidget class not available or pyqtgraph failed')
     traceback.print_exc()
+

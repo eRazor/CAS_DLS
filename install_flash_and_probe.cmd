@@ -7,4 +7,3 @@ python -m pip uninstall -y ninja
 python -m pip install flash-attn --no-build-isolation --verbose
 python "H:\Documents\My Training\CAS DL\ml_import_probe.py"
 pause
-

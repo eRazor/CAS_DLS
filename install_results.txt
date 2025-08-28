@@ -97,3 +97,4 @@ deeptools FAIL  # kept for history; intentionally SKIPPED in requirements and te
 gseapy SUCCESS
 MDAnalysis SUCCESS
 pyqtgraph SUCCESS
+

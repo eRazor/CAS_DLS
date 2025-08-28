@@ -7,3 +7,6 @@ for name in ('transformers','accelerate','bitsandbytes','flash_attn'):
     except Exception as e:
         print(name, 'import FAILED:', e.__class__.__name__, str(e))
         traceback.print_exc()
+
+
+        

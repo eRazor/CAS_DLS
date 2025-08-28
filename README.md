@@ -44,3 +44,4 @@ If you need a CUDA-enabled PyTorch and better support for native packages, creat
 Notes:
 - On Windows some packages (pysam, deeptools) are best installed via bioconda on Linux/WSL or inside a Docker container.
 - flash-attn requires matching CUDA and PyTorch versions; on Windows you may need to match your system CUDA or use WSL/Docker for prebuilt wheels.
+
