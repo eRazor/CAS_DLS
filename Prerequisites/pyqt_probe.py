@@ -22,4 +22,3 @@ for mod in ('PyQt5.QtWidgets','PyQt6.QtWidgets','PySide2.QtWidgets','PySide6.QtW
         print(mod, 'QtWidgets import OK')
     except Exception as e:
         print(mod, 'QtWidgets import failed:', str(e))
-
