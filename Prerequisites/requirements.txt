@@ -26,6 +26,7 @@ opencv-python
 gseapy
 MDAnalysis
 pyqtgraph
+--extra-index-url https://pypi.ngc.nvidia.com
 
 # Notes:
 # - bioconda is a conda channel (use conda/bioconda)

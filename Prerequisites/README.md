@@ -1,21 +1,27 @@
 # CAS Digital LifeScience
+This project collects the top bioinformatics Python libraries and provides a simple evaluation harness.
 
-Setup Environment
-#1 Install Git
-#2 GitHub (Create Account)
-#3 Git Pull and Issue Extension
-#4 Test with clean Project
 
-#5 Install Docker Desktop
-#6 Docker Extensions for VS Code
-#7 (test) Create new Dev Container and Attach to it
+Environment Setup
+#1 Install Git https://git-scm.com/downloads
+#2 GitHub (Create Account) https://github.com/
+#3 Extension: Git Pull and Issue Extension 
+#4 Test with clean Project (create readme, change, add and sync)
 
-#7 Install Python
-#8 Install Miniconda and set System Paths
+#5 Install Docker Desktop https://www.docker.com/
+#6 Extension: Docker
+#7 Test with create new Dev Container and Attach to it
 
-#9 Install CUDA (latest compatible version with Docker )
-#8 Install Cuda Libraries and set path in miniconda
+#8 Install Python
+#9 Install Miniconda and set System Paths
+#10 Set python.condaPath to miniconda to activate
 
+#10 Install CUDA (latest compatible version with Docker )
+#11 Install Cuda Libraries and set path in miniconda
+#12 Check Cuda installation with check_cuda.py
+
+#12 Create Environment using Miniconda https://gist.github.com/bennyistanto/46d8cfaf88aaa881ec69a2b5ce60cb58
+#13 Install dependencies (Pytorch, cuDNN, CudaToolkit, Tensorflow)
 
 
 ## How to install Miniconda (Windows)
@@ -32,7 +38,7 @@ Setup Environment
    ```
    to verify conda is installed.
 
-This project collects the top bioinformatics Python libraries and provides a simple evaluation harness.
+
 
 Structure:
 - `requirements.txt` - list of libraries (pip names where possible).
@@ -71,7 +77,8 @@ If you need a CUDA-enabled PyTorch and better support for native packages, creat
 1) Install Miniconda (if needed).
 2) conda create -n cas_gpu python=3.12
 3) conda install -n cas_gpu -c pytorch -c nvidia pytorch pytorch-cuda=12.4
-4) conda run -n cas_gpu python -m pip install -r requirements.txt
+4) $DocumentsPath = [Environment]::GetFolderPath("MyDocuments")
+5) conda run -n cas_gpu python -m pip install -r "$DocumentsPath\My Training\CAS\CAS_DLS\Prerequisites\requirements.txt"
 
 Notes:
 - On Windows some packages (pysam, deeptools) are best installed via bioconda on Linux/WSL or inside a Docker container.

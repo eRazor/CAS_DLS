@@ -1,29 +1,34 @@
-@echo off
-REM Check for python or py launcher
-where python >nul 2>nul
-if %errorlevel%==0 (
-    set "PY_CMD=python"
-) else (
-    where py >nul 2>nul
+if false (
+    @echo off
+    REM Check for python or py launcher
+    where python >nul 2>nul
     if %errorlevel%==0 (
-        set "PY_CMD=py"
+        set "PY_CMD=python"
     ) else (
-        echo Python is not installed or not in your PATH.
-        echo Install from https://www.python.org/downloads/ or install Miniconda.
-        echo After installation, re-open this terminal and re-run this script.
-        exit /b 1
+        where py >nul 2>nul
+        if %errorlevel%==0 (
+            set "PY_CMD=py"
+        ) else (
+            echo Python is not installed or not in your PATH.
+            echo Install from https://www.python.org/downloads/ or install Miniconda.
+            echo After installation, re-open this terminal and re-run this script.
+            exit /b 1
+        )
     )
+
+
+    set "CUDA_HOME=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4"
+    set "PATH=%CUDA_HOME%\bin;%PATH%"
+    set DISTUTILS_USE_SDK=1
+
+    REM Configure conda to not auto-activate the base environment
+    conda config --set auto_activate false
+    REM Create a virtual environment named 'CAS_DLS'
+    %PY_CMD% -m venv CAS_DLS
+    conda install cuda -c nvidia
 )
-
-
-set "CUDA_HOME=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4"
-set "PATH=%CUDA_HOME%\bin;%PATH%"
-set DISTUTILS_USE_SDK=1
-
-REM Create a virtual environment named 'CAS_DLS'
-%PY_CMD% -m venv CAS_DLS
-
-
+conda install -n cas_dls -c conda-forge cudatoolkit
+conda install -n cas_dls -c conda-forge cudnn
 
 call "%USERPROFILE%\Miniconda3\Scripts\activate.bat" CAS_DLS
 
@@ -35,13 +40,13 @@ REM Upgrade pip
 
 REM Install PyTorch with CUDA 12.x support (update index-url if needed)
 REM Note: change the index URL to the correct CUDA toolchain if/when available
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+conda install -n cas_dls pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
 
-REM Install TensorFlow (CPU/GPU wheel selection is automatic if compatible)
-pip install tensorflow
+REM Install TensorFlow (CPU/GPU wheel selection is automatic if compatible) Note that TF does not support GPU on Windows (it is slow)
+conda install -n cas_dls -c conda-forge tensorflow
 
 REM Install Flash-Attention
-pip install flash-attn --no-build-isolation --verbose
+conda install -n cas_dls flash-attn --no-build-isolation --verbose
 
 REM NOTE: If you prefer conda-managed CUDA (recommended for GPU toolkits),
 REM install Miniconda and create a conda env, then use:
