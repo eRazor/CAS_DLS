@@ -16,7 +16,6 @@ if false (
         )
     )
 
-
     set "CUDA_HOME=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4"
     set "PATH=%CUDA_HOME%\bin;%PATH%"
     set DISTUTILS_USE_SDK=1
@@ -60,3 +59,4 @@ echo Virtual environment 'CAS_DLS' created and activated.
 echo To activate later (Command Prompt): call CAS_DLS\Scripts\activate
 echo To activate later (PowerShell): CAS_DLS\Scripts\Activate.ps1
 echo To deactivate: deactivate
+echo You can now run python check_cuda.py to verify CUDA installation.

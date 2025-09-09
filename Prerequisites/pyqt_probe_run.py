@@ -22,18 +22,26 @@ for mod in ('PyQt5','PyQt6','PySide2','PySide6'):
     except Exception:
         print(mod, 'not present')
 
+# Try importing QtWidgets to trigger platform plugin errors
+for mod in ('PyQt5.QtWidgets','PyQt6.QtWidgets','PySide2.QtWidgets','PySide6.QtWidgets'):
+    try:
+        __import__(mod)
+        print(mod, 'QtWidgets import OK')
+    except Exception as e:
+        print(mod, 'QtWidgets import failed:', str(e))
+
 # Try to instantiate a PlotWidget (offscreen) to detect runtime GUI issues
 try:
     from pyqtgraph import PlotWidget
     print('PlotWidget class found')
     os.environ.setdefault('QT_QPA_PLATFORM', 'offscreen')
     try:
-        # prefer PyQt5 if present
-        if 'PyQt5' in sys.modules or 'PyQt5' in (m for m in sys.modules):
-            from PyQt5 import QtWidgets
+        # prefer PyQt6 if present
+        if 'PyQt6' in sys.modules or 'PyQt6' in (m for m in sys.modules):
+            from PyQt6 import QtWidgets
             app = QtWidgets.QApplication.instance() or QtWidgets.QApplication([])
             pw = PlotWidget()
-            print('Created PlotWidget OK (PyQt5)')
+            print('Created PlotWidget OK (PyQt6)')
             app.quit()
         else:
             # try generic Qt

@@ -25,6 +25,8 @@ sqlalchemy
 opencv-python
 gseapy
 MDAnalysis
+PyQt6
+PySide6
 pyqtgraph
 --extra-index-url https://pypi.ngc.nvidia.com
 

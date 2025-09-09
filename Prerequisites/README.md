@@ -2,26 +2,31 @@
 This project collects the top bioinformatics Python libraries and provides a simple evaluation harness.
 
 
-Environment Setup
-#1 Install Git https://git-scm.com/downloads
-#2 GitHub (Create Account) https://github.com/
-#3 Extension: Git Pull and Issue Extension 
-#4 Test with clean Project (create readme, change, add and sync)
+### Environment Setup
+#0 Install VS Code + Python Extensions
+#1 Install Extensions: continue dev, Cline
+#2 Install Ollama download and activate the Coding Assistent Model,  ollama pull deepseek-r1, ollama pull qwen2.5-coder:1.5b-base, ollama pull nomic-embed-text:latest
+#3 Test autocompletion in a python file
 
-#5 Install Docker Desktop https://www.docker.com/
-#6 Extension: Docker
-#7 Test with create new Dev Container and Attach to it
+#11 Install Git https://git-scm.com/downloads
+#12 GitHub (Create Account) https://github.com/
+#13 Extension: Git Pull and Issue Extension 
+#14 Test with clean Project (create readme, change, add and sync)
 
-#8 Install Python
-#9 Install Miniconda and set System Paths
-#10 Set python.condaPath to miniconda to activate
+#15 Install Docker Desktop https://www.docker.com/
+#16 Extension: Docker
+#17 Test with create new Dev Container and Attach to it
 
-#10 Install CUDA (latest compatible version with Docker )
-#11 Install Cuda Libraries and set path in miniconda
-#12 Check Cuda installation with check_cuda.py
+#18 Install Python
+#19 Install Miniconda and set System Paths
+#20 Set python.condaPath to miniconda to activate
 
-#12 Create Environment using Miniconda https://gist.github.com/bennyistanto/46d8cfaf88aaa881ec69a2b5ce60cb58
-#13 Install dependencies (Pytorch, cuDNN, CudaToolkit, Tensorflow)
+#21 Install CUDA (latest compatible version with Docker )
+#22 Install Cuda Libraries and set path in miniconda
+#23 Check Cuda installation with check_cuda.py
+
+#24 Create Environment using Miniconda https://gist.github.com/bennyistanto/46d8cfaf88aaa881ec69a2b5ce60cb58
+#25 Install dependencies (Pytorch, cuDNN, CudaToolkit, Tensorflow[no GPU])
 
 
 ## How to install Miniconda (Windows)
@@ -110,7 +115,7 @@ Notes:
 - python --version
 - pip list
 
-## Adding Python and Miniconda to PATH (Windows)
+## How to add Python and Miniconda to PATH (Windows)
 
 Important: modifying your PATH affects programs launched after the change. Prefer the installer's "Add to PATH" option when available, or use the commands below with care.
 
