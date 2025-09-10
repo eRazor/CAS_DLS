@@ -460,22 +460,14 @@ class BootstrapVisualizer:
         ax.grid(True, alpha=0.3)
         plt.title(title)
         plt.tight_layout()
-<<<<<<< HEAD
         
-=======
-        plt.show(block=True)
->>>>>>> 5678f938fbd29489c0655b96fbcb53a85df020f0
 
         # Save figure if path provided
         if save_path:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
             print(f"Figure saved to: {save_path}")
 
-<<<<<<< HEAD
         plt.show(block=True)
-=======
-        
->>>>>>> 5678f938fbd29489c0655b96fbcb53a85df020f0
 
         # Print detailed comparison
         # print(f"\n--- Confidence Interval Comparison ---")
