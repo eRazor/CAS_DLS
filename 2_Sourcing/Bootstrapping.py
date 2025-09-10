@@ -277,8 +277,9 @@ class BootstrapVisualizer:
         plt.title(title)
         plt.legend()
         plt.grid(True, alpha=0.3)
-        plt.show()
- # Save figure if path provided
+        plt.show(block=False)
+
+        # Save figure if path provided
         if save_path:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
             print(f"Figure saved to: {save_path}")
@@ -330,13 +331,12 @@ class BootstrapVisualizer:
         ax2.grid(True, alpha=0.3)
         plt.title(title)
         plt.tight_layout()
+        plt.show(block=False)
 
         # Save figure if path provided
         if save_path:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
             print(f"Figure saved to: {save_path}")
-
-        plt.show()
 
         # Print summary statistics
         print(f"\n--- Summary Statistics ---")
@@ -397,13 +397,14 @@ class BootstrapVisualizer:
         plt.grid(True, alpha=0.3)
         plt.title(title)
         plt.tight_layout()
+        plt.show(block=False)
 
         # Save figure if path provided
         if save_path:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
             print(f"Figure saved to: {save_path}")
 
-        plt.show()
+
 
         # Print comparison
         print(f"\n--- Bootstrap vs Theoretical Comparison ---")
@@ -459,13 +460,14 @@ class BootstrapVisualizer:
         ax.grid(True, alpha=0.3)
         plt.title(title)
         plt.tight_layout()
+        plt.show(block=True)
 
         # Save figure if path provided
         if save_path:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
             print(f"Figure saved to: {save_path}")
 
-        plt.show()
+        
 
         # Print detailed comparison
         # print(f"\n--- Confidence Interval Comparison ---")
@@ -594,7 +596,9 @@ def demonstrate_bootstrapping():
     # Generate sample data
     np.random.seed(42)
     sample_data = np.random.normal(true_mean, true_std, sample_size)  
-  
+
+
+
     """
     Compare bootstrap results with theoretical results
     """
@@ -610,7 +614,11 @@ def demonstrate_bootstrapping():
     
     # Bootstrap confidence interval
     bootstrap_analyzer = BootstrapAnalyzer(sample_data, n_bootstrap=sample_size)
+    
+    BootstrapVisualizer.plot_bootstrap_distribution(bootstrap_analyzer.get_bootstrap_data(np.mean, confidence_interval))
+
     bootstrap_lower, bootstrap_upper, _ = bootstrap_analyzer.confidence_interval(np.mean, confidence_interval)
+
 
     print(f"True population mean: {true_mean}")
     print(f"Target Size: {sample_size}")
@@ -618,6 +626,8 @@ def demonstrate_bootstrapping():
     print(f"Original sample mean: {sample_mean:.3f}")
     print(f"Original sample std: {sample_std:.3f}")
     
+
+
     print("\n" + "=" * 60)
     print("BOOTSTRAP vs THEORETICAL COMPARISON")
     print("=" * 60)
@@ -703,8 +713,6 @@ def demonstrate_bootstrapping():
     coverage = np.mean((y_test >= pred_intervals['lower_bound']) & 
                       (y_test <= pred_intervals['upper_bound']))
     print(f"Prediction interval coverage: {coverage:.1%}")
-
-    
 
 
 if __name__ == "__main__":
