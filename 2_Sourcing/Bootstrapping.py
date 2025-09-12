@@ -484,7 +484,6 @@ class BootstrapVisualizer:
                 print(f"  Theoretical CI: [{theo_lower:.3f}, {theo_upper:.3f}] (width: {theo_upper-theo_lower:.3f})")
                 print(f"  Difference: {abs((boot_upper-boot_lower) - (theo_upper-theo_lower)):.3f}")
 
-
 class ModelBootstrap:
     """
     Bootstrap methods for machine learning models
@@ -587,24 +586,31 @@ def demonstrate_bootstrapping():
     print("=" * 60)
     print("BOOTSTRAPPING DEMONSTRATION")
     print("=" * 60)
-    
-    true_mean = 200
+
+    random_seed = 12
+
+    true_mean = 100
     true_std = 30
     sample_size = 100
     confidence_interval = 0.95
 
+    n_bootstrap = 20  # Number of bootstrap samples
+
     # Generate sample data
-    np.random.seed(42)
+    np.random.seed(random_seed)
     sample_data = np.random.normal(true_mean, true_std, sample_size)  
-
-
 
     """
     Compare bootstrap results with theoretical results
     """
+    print("=" * 60)
+    print("COMPARISON OF BOOTSTRAP AND THEORETICAL RESULTS")
+    print("=" * 60)
     # Theoretical confidence interval for mean
     sample_mean = np.mean(sample_data)
     sample_std = np.std(sample_data, ddof=1)
+
+    # Standard error (Variability of the sample mean)
     se_mean = sample_std / np.sqrt(sample_size)
     
     # 95% CI using t-distribution
@@ -613,18 +619,19 @@ def demonstrate_bootstrapping():
     theoretical_upper = sample_mean + t_critical * se_mean
     
     # Bootstrap confidence interval
-    bootstrap_analyzer = BootstrapAnalyzer(sample_data, n_bootstrap=sample_size)
+    bootstrap_analyzer = BootstrapAnalyzer(sample_data, n_bootstrap=n_bootstrap, random_state=random_seed)
     
     BootstrapVisualizer.plot_bootstrap_distribution(bootstrap_analyzer.get_bootstrap_data(np.mean, confidence_interval))
 
     bootstrap_lower, bootstrap_upper, _ = bootstrap_analyzer.confidence_interval(np.mean, confidence_interval)
 
-
     print(f"True population mean: {true_mean}")
     print(f"Target Size: {sample_size}")
+    print(f"Number of Bootstrap Samples / Iterations: {n_bootstrap}")
     print(f"Original sample size: {len(sample_data)}")   
     print(f"Original sample mean: {sample_mean:.3f}")
     print(f"Original sample std: {sample_std:.3f}")
+    print(f"Standard Error of the Mean: {se_mean:.3f}")
     
 
 
@@ -697,10 +704,10 @@ def demonstrate_bootstrapping():
     y = X @ true_coefficients + np.random.randn(sample_size) * 0.5
     
     # Split data
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=random_seed)
     
     # Model bootstrap
-    model_bootstrap = ModelBootstrap(X_train, y_train, LinearRegression, n_bootstrap=sample_size)
+    model_bootstrap = ModelBootstrap(X_train, y_train, LinearRegression, n_bootstrap=n_bootstrap,random_state=random_seed)
     
     # Get prediction intervals
     pred_intervals = model_bootstrap.prediction_intervals(X_test, confidence_level=confidence_interval)
