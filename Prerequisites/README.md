@@ -10,6 +10,8 @@ This project collects the top bioinformatics Python libraries and provides a sim
 
 #11 Install Git https://git-scm.com/downloads
 #12 GitHub (Create Account) https://github.com/
+ -  git config --global user.email "pascal.luc@hotmail.com"
+ -  git config --global user.name "eRazor"
 #13 Extension: Git Pull and Issue Extension 
 #14 Test with clean Project (create readme, change, add and sync)
 
