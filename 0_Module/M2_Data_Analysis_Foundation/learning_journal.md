@@ -24,6 +24,13 @@ Maintaining this journal will help you solidify your knowledge and serve as a va
 - sk-learn next
 - tenserflow for neuron network
 - data.world
+- when merging, set indicator = True
+- .melt to reverse the pivoting (reverse the long format)
+- set column.names = none  (long to wide and wide to long)
+- one hot encoding.
+- local average vs rolling average
+- marimo.app, variable graph, dependency execution, sql injection :)
+
 
 #### Code snippets I want to remember:
 ```python
@@ -91,3 +98,40 @@ recent_sales = df[df['date'] > '2025-01-01']
 5. Review previous entries regularly to reinforce learning
 
 Remember, this journal is for you - feel free to customize it to best support your learning style!
+
+
+
+Tips:
+#Importing the TB data dictionary into Python and showing the 2 columns 'variable_name' and 'definition'.
+
+import csv
+
+Tbdata_dict = {}
+
+with open("../data/TB_data_dictionary_2025-11-24.csv") as file:
+reader = csv.DictReader(file)
+for row in reader:
+Tbdata_dict[row["variable_name"]] = row["definition"]
+
+#How to see the whole dictionary:Tbdata_dict
+
+#How to look up a abbreviation: 
+Tbdata_dict["cfr"]
+
+Fiona 18:26
+#Creating the Bubble Maps for 'Incidence per 100 000 Inhabitants'
+fig_incidence = px.scatter_geo(df_tbworld_cleaned,
+locations="iso3", #Country codes in ISO-3 format
+color="estimated_incidence_per_100k", #Color by estimated incidence per 100k
+size="estimated_incidence_per_100k", #Size of the bubble
+hover_name="country", #Displays the country name and Infos
+animation_frame="year",
+size_max=40, #Max size of the bubbles
+projection="natural earth",
+title="Estimated Incidence of TB per 100,000 Inhabitants (2000-2024)",
+color_continuous_scale='YlOrRd', #Color scale from yellow to red)
+width=1300,
+height=800,
+template="plotly_dark" ) #Dark background so bubbles are better visible
+
+fig_incidence.show()
