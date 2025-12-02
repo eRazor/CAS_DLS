@@ -30,6 +30,14 @@ This project collects the top bioinformatics Python libraries and provides a sim
 #24 Create Environment using Miniconda https://gist.github.com/bennyistanto/46d8cfaf88aaa881ec69a2b5ce60cb58
 #25 Install dependencies (Pytorch, cuDNN, CudaToolkit, Tensorflow[no GPU])
 
+#Sequence is important:
+pip install nvidia-cudnn-cu13
+pip install nvidia-cuda-runtime
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
+Restart Env after install
+
+Install requirements after
+
 
 ## How to install Miniconda (Windows)
 
@@ -84,6 +92,7 @@ If you need a CUDA-enabled PyTorch and better support for native packages, creat
 1) Install Miniconda (if needed).
 2) conda create -n cas_gpu python=3.12
 3) conda install -n cas_gpu -c pytorch -c nvidia pytorch pytorch-cuda=12.4
+
 4) $DocumentsPath = [Environment]::GetFolderPath("MyDocuments")
 5) conda run -n cas_gpu python -m pip install -r "$DocumentsPath\My Training\CAS\CAS_DLS\Prerequisites\requirements.txt"
 

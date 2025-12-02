@@ -10,12 +10,12 @@ altair
 biopython
 scanpy
 scikit-bio
+scikit-learn
 deepchem
 biotite
 scikit-learn
 tensorflow
 keras
-torch
 snakemake
 rpy2
 pingouin
@@ -28,12 +28,17 @@ MDAnalysis
 PyQt6
 PySide6
 pyqtgraph
+mglearn
+pillow
+imageio
+joblib
 --extra-index-url https://pypi.ngc.nvidia.com
 
 # Notes:
 # - bioconda is a conda channel (use conda/bioconda)
 # - galaxy is a platform, not a simple pip package
 # - pysam, deeptools, etc. may require system libs (htslib)
+# - graphyz is deprecated
 #
 # NOTE: pysam and deeptools are intentionally left out of the pip
 # requirements for this Windows/venv project because they require
