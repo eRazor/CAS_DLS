@@ -11,6 +11,7 @@ biopython
 scanpy
 scikit-bio
 scikit-learn
+selenium
 deepchem
 biotite
 scikit-learn

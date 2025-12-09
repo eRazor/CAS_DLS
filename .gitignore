@@ -3,3 +3,5 @@ __pycache__/
 .env
 .venv
 external/flash-attn
+2_Sourcing/WebCrawler/Images/photos
+2_Sourcing/WebCrawler/Images/webdriver

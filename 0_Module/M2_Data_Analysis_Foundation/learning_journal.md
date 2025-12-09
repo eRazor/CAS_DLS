@@ -135,3 +135,32 @@ height=800,
 template="plotly_dark" ) #Dark background so bubbles are better visible
 
 fig_incidence.show()
+
+
+Feedback!!!!
+
+Something like:
+
+df_exercise.loc[:, "Numeric_DateTime"] = pd.to_datetime(df_exercise["DateTime"]).astype('int64')
+(to try)
+
+DATA_DIRECTORY = os.path.join(WORKING_DIRECTORY, "data")
+
+
+Since you use the same find of plot several times, you can also encapsulate the code into a function, something like
+
+def plot_signal(df, x_col, y_col, title):
+    plt.figure(figsize=(12,6))
+    sns.lineplot(data=df, x=x_col, y=y_col)
+    plt.title(title)
+    plt.show()
+
+
+Same thing for your dataframe clearning code with dropna, then data conversion, ...
+
+corr1, _ = pearsonr(data1, data2)
+corr2, _ = spearmanr(data1, data2)
+
+You could also visualize, maybe with scatter plots with regression line (seaborn)
+
+peaks, props, smoothed = auto_find_peaks(y, sampling_rate=500/(6*np.pi))
