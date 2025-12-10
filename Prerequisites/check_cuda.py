@@ -45,5 +45,3 @@ def check_cuda_support():
 
 if __name__ == "__main__":
     check_cuda_support()
-
-
