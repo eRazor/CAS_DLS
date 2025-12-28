@@ -33,6 +33,9 @@ mglearn
 pillow
 imageio
 joblib
+kneed
+pca
+yellowbrick
 --extra-index-url https://pypi.ngc.nvidia.com
 
 # Notes:
