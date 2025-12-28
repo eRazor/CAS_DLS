@@ -1,0 +1,2 @@
+version,device name,recording epoch time,recording time,recording timezone,platform,appVersion,device id,sensors,sampleRateMs,standardisation
+3,2406APNFAG,1765548682706,2025-12-12_14-11-22,Europe/Zurich,android,1.49.0,64cb2556-5be0-40b0-9859-f97537c16b5d,Heart Rate|Annotation|Watch Orientation|Watch Accelerometer|Watch Gravity|Watch Gyroscope|Watch TotalAcceleration,10||10|10|10|10|10,false
