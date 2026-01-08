@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+.venv
+external/flash-attn
+2_Sourcing/WebCrawler/Images/photos
+2_Sourcing/WebCrawler/Images/webdriver
+0_Module/M3_Machine_Learning/Project/data/02-preprocessed/250MS_Resampled.pkl
+0_Module/M3_Machine_Learning/Project/data/01-raw/*/
+0_Module/M3_Machine_Learning/introduction_to_ml_with_python
