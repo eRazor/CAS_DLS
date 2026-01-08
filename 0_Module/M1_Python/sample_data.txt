@@ -1,6 +1,0 @@
-Sample ID	Value	Condition
-S001	23.5	Control
-S002	45.1	Treatment
-S003	19.8	Control
-S004	52.4	Treatment
-S005	18.2	Control
