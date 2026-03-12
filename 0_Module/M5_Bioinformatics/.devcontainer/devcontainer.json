@@ -1,0 +1,45 @@
+{
+  "name": "Bioinformatics for beginners",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/java:1": { "version": "21" },
+    "ghcr.io/devcontainers/features/python:1": { "version": "3.12" },
+    "ghcr.io/rocker-org/devcontainer-features/miniforge:2": { "version": "latest" }
+  },
+
+  "remoteUser": "root",
+
+  "remoteEnv": {
+    "NXF_HOME": "/workspaces/.nextflow",
+    "NXF_VER": "25.10.4",
+    "NXF_SYNTAX_PARSER": "v2",
+    "MAMBA_ROOT_PREFIX": "/opt/conda",
+    "NXF_CONDA_CACHEDIR": "/workspaces/.conda-pkgs",
+    "SHELL": "/bin/bash"
+  },
+
+  "onCreateCommand": "bash .devcontainer/setup.sh",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "nextflow.nextflow",
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "codezombiech.gitignore",
+        "EditorConfig.EditorConfig",
+        "esbenp.prettier-vscode",
+        "mechatroner.rainbow-csv",
+        "oderwat.indent-rainbow",
+        "streetsidesoftware.code-spell-checker",
+        "ritwickdey.LiveServer"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/opt/conda/bin/python",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
+}

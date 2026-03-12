@@ -11,3 +11,4 @@ external/flash-attn
 0_Module/M4_Neural_Network/project/Data/01-raw
 0_Module/M4_Neural_Network/project/Data/02-preprocessed
 0_Module/M4_Neural_Network/project/openpose
+0_Module/M5_Bioinformatics/Genomics/nextflow_bioinformatics4beginners/input/*
