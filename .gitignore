@@ -5,6 +5,8 @@ __pycache__/
 external/flash-attn
 2_Sourcing/WebCrawler/Images/photos
 2_Sourcing/WebCrawler/Images/webdriver
+2_autodidactic/2_Sourcing/WebCrawler/Images/photos
+2_autodidactic/2_Sourcing/WebCrawler/Images/webdriver
 0_Module/M3_Machine_Learning/Project/data/02-preprocessed/250MS_Resampled.pkl
 0_Module/M3_Machine_Learning/Project/data/01-raw/*/
 0_Module/M3_Machine_Learning/introduction_to_ml_with_python
@@ -12,3 +14,10 @@ external/flash-attn
 0_Module/M4_Neural_Network/project/Data/02-preprocessed
 0_Module/M4_Neural_Network/project/openpose
 0_Module/M5_Bioinformatics/Genomics/nextflow_bioinformatics4beginners/input/*
+1_Modules/M3_Machine_Learning/Project/data/02-preprocessed/250MS_Resampled.pkl
+1_Modules/M3_Machine_Learning/Project/data/01-raw/*/
+1_Modules/M3_Machine_Learning/introduction_to_ml_with_python
+1_Modules/M4_Neural_Network/project/Data/01-raw
+1_Modules/M4_Neural_Network/project/Data/02-preprocessed
+1_Modules/M4_Neural_Network/project/openpose
+1_Modules/M5_Bioinformatics/Genomics/nextflow_bioinformatics4beginners/input/*
