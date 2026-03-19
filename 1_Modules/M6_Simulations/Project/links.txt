@@ -1,0 +1,4 @@
+https://selfservice.zhaw.ch/index.html
+https://servicedesk.zhaw.ch/tas/public/ssp/
+https://myaccount.microsoft.com/
+https://github.com/oculus-samples/Unity-PassthroughCameraApiSamples
