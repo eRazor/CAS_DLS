@@ -1,10 +1,10 @@
 #1. Setting up your workspace
 #Installing the packages necessary for the Single Cell Analysis
 
-install.packages("dplyr")
-install.packages("SeuratObject")
-install.packages("Seurat")
-install.packages("patchwork")
+# install.packages("dplyr")
+# install.packages("SeuratObject")
+# install.packages("Seurat")
+# install.packages("patchwork")
 
 #Loading the package libraries
 
@@ -15,7 +15,7 @@ library(patchwork)
 
 # Load the PBMC dataset from the link "https://cf.10xgenomics.com/samples/cell/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz" 
 #Make sure you have the file unzipped and you have the correct data directory to read the file
-pbmc.data <- Read10X(data.dir = "filtered_gene_bc_matrices/hg19/")
+pbmc.data <- Read10X(data.dir = "C:\\Users\\pasca_p\\Documents\\CAS\\CAS_DLS\\1_Modules\\M5_Bioinformatics\\SingleCell\\data\\filtered_gene_bc_matrices\\hg19\\")
 # Initialize the Seurat object with the raw (non-normalized data).
 pbmc <- CreateSeuratObject(counts = pbmc.data, project = "pbmc3k", min.cells = 3, min.features = 200)
 

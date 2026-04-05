@@ -1,0 +1,17 @@
+name: Bioinfo4B-STR
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.8
+  - gangstr
+  - bwa-mem2
+  - samtools
+  - cyvcf2
+  - numpy
+  - pandas
+  - seaborn
+  - biopython
+  - notebook
+  - cnvkit
