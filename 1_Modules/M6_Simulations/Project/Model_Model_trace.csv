@@ -1,0 +1,3 @@
+Time(Hours),EntityID,ObjectName,ProcessID,StepName,Action
+0.031068816591527635,Patient.108,Intervene_A,20.OnEnteredInputBuffer,[Seize] SecondaryResources,Invalid resource move request. The object 'Drug_A' is not a moveable resource.
+
