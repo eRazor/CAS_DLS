@@ -1,0 +1,100 @@
+﻿numpy SUCCESS
+pandas SUCCESS
+scipy SUCCESS
+Summary of recent install attempts (conda env: cas_gpu)
+
+conda create -n cas_gpu python=3.12 -> OK
+conda install -n cas_gpu -c pytorch -c nvidia pytorch pytorch-cuda=12.4 -> OK (pytorch 2.5.1 with CUDA 12.4)
+
+pip install inside cas_gpu:
+- transformers: OK
+- accelerate: OK
+- bitsandbytes: OK (prebuilt wheel for win_amd64)
+- flash-attn: FAIL to build from source in cas_gpu (RuntimeError: detected CUDA 13.0 on system vs PyTorch compiled with CUDA 12.4 -> CUDA version mismatch; wheel not available) 
+
+Bioinformatics native packages (notes):
+- pysam: SKIPPED for Windows venv (native htslib build failed via pip). Use bioconda/conda, WSL/Docker, or an official binary wheel on Linux.
+- deeptools: SKIPPED for Windows venv (depends on pysam and native libs). Use bioconda/conda or Linux container.
+
+Test run (ran H:\\Documents\\My Training\\CAS DL\\run_tests.py inside cas_gpu). Each line: test_name [1=pass,0=fail]
+test_altair_chart 1
+test_altair_encode 1
+test_biopython_align 1
+test_biopython_seq 0
+test_biotite_import 1
+test_biotite_seq 1
+test_bs4_import 1
+test_bs4_parser 1
+test_deepchem_import 1
+test_deepchem_version 1
+test_gseapy_import 1
+test_gseapy_prerank 1
+test_keras_import 1
+test_keras_sequential 1
+test_matplotlib_imshow 1
+test_matplotlib_plot 1
+test_mdanalysis_import 1
+test_mdanalysis_universe 1
+test_numpy_array 1
+test_numpy_mean 1
+test_opencv_import 1
+test_opencv_version 1
+test_pandas_dataframe 1
+test_pandas_read_csv 1
+test_pingouin_corr 1
+test_pingouin_import 1
+test_plotly_express_scatter 1
+test_plotly_graph_objects 1
+test_pyqtgraph_import 0
+test_pyqtgraph_plot 0
+test_rpy2_import 1
+test_rpy2_version 0
+test_scanpy_import 1
+test_scanpy_pp 1
+test_scikit_bio_distance 0
+test_scikit_bio_import 1
+test_scipy_optimize 1
+test_scipy_stats 1
+test_seaborn_boxplot 1
+test_seaborn_heatmap 1
+test_sklearn_basic 1
+test_sklearn_metrics 1
+test_snakemake_import 1
+test_snakemake_version 1
+test_sqlalchemy_engine 1
+test_sqlalchemy_import 1
+test_statsmodels_import 1
+test_statsmodels_ols 1
+test_tensorflow_import 1
+test_tensorflow_simple 1
+test_torch_import 1
+test_torch_tensor 1
+
+Notes:
+- Many previously missing packages were installed into cas_gpu via pip; a few test failures remain (pyqtgraph requires a Qt binding in this environment; rpy2 version test failed possibly due to R not configured in PATH; scikit-bio distance test failed due to optional compiled dependency differences). flash-attn requires exact CUDA version match between system CUDA, PyTorch build, and the package wheel — on Windows the easiest path is to use PyTorch + CUDA variant that matches system CUDA or run on Linux/WSL/Docker where prebuilt wheels are available.
+
+Next recommended steps:
+- If you need flash-attn/bitsandbytes working, either adjust system CUDA to match pytorch-cuda (12.4) or create a matching environment (or use WSL/Docker). For pysam/deeptools, use conda-forge/bioconda on Linux or WSL.
+altair SUCCESS
+biopython SUCCESS
+pysam FAIL  # kept for history; intentionally SKIPPED in requirements and tests on Windows
+scanpy SUCCESS
+scikit-bio SUCCESS
+deepchem SUCCESS
+biotite SUCCESS
+scikit-learn SUCCESS
+tensorflow SUCCESS
+keras SUCCESS
+torch SUCCESS
+snakemake SUCCESS
+rpy2 SUCCESS
+pingouin SUCCESS
+statsmodels SUCCESS
+beautifulsoup4 SUCCESS
+sqlalchemy SUCCESS
+opencv-python SUCCESS
+deeptools FAIL  # kept for history; intentionally SKIPPED in requirements and tests on Windows
+gseapy SUCCESS
+MDAnalysis SUCCESS
+pyqtgraph SUCCESS
+

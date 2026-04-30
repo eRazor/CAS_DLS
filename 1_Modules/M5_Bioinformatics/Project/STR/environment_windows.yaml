@@ -1,0 +1,12 @@
+name: Bioinfo4B-STR
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.8
+  - numpy
+  - pandas
+  - seaborn
+  - jupyter
+  - biopython 

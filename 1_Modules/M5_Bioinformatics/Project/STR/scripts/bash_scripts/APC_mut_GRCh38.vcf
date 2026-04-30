@@ -1,0 +1,26 @@
+##fileformat=VCFv4.1
+##command=GangSTR-2.5.0 --bam ../../data/alignments/APC_mut.bam --ref ../../data/reference/APC.fa --regions ../../data/repeats/APC_repeats.tsv --out APC_mut
+##contig=<ID=chr5,length=143741>
+##INFO=<ID=END,Number=1,Type=Integer,Description="End position of variant">
+##INFO=<ID=RU,Number=1,Type=String,Description="Repeat motif">
+##INFO=<ID=PERIOD,Number=1,Type=Integer,Description="Repeat period (length of motif)">
+##INFO=<ID=REF,Number=1,Type=Float,Description="Reference copy number">
+##INFO=<ID=GRID,Number=2,Type=Integer,Description="Range of optimization grid">
+##INFO=<ID=EXPTHRESH,Number=1,Type=Integer,Description="Threshold for calling expansions">
+##INFO=<ID=STUTTERUP,Number=1,Type=Float,Description="Stutter model - up prob">
+##INFO=<ID=STUTTERDOWN,Number=1,Type=Float,Description="Stutter model - down prob">
+##INFO=<ID=STUTTERP,Number=1,Type=Float,Description="Stutter model - p">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Read Depth">
+##FORMAT=<ID=Q,Number=1,Type=Float,Description="Quality Score (posterior probability)">
+##FORMAT=<ID=REPCN,Number=2,Type=Integer,Description="Genotype given in number of copies of the repeat motif">
+##FORMAT=<ID=REPCI,Number=1,Type=String,Description="Confidence intervals">
+##FORMAT=<ID=RC,Number=1,Type=String,Description="Number of reads in each class (enclosing, spanning, FRR, bounding)">
+##FORMAT=<ID=ENCLREADS,Number=1,Type=String,Description="Summary of reads in enclosing class. Keys are number of copies and values show number of reads with that many copies.">
+##FORMAT=<ID=FLNKREADS,Number=1,Type=String,Description="Summary of reads in flanking class. Keys are number of copies and values show number of reads with that many copies.">
+##FORMAT=<ID=ML,Number=1,Type=Float,Description="Maximum likelihood">
+##FORMAT=<ID=INS,Number=2,Type=Float,Description="Insert size mean and stddev">
+##FORMAT=<ID=STDERR,Number=2,Type=Float,Description="Bootstrap standard error of each allele">
+##FORMAT=<ID=QEXP,Number=3,Type=Float,Description="Prob. of no expansion, 1 expanded allele, both expanded alleles">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	mut
+chr5	112839979	.	agagagagag	agagag	.	.	END=112839988;RU=ag;PERIOD=2;REF=5;GRID=1,6;STUTTERUP=0.05;STUTTERDOWN=0.05;STUTTERP=0.9;EXPTHRESH=-1	GT:DP:Q:REPCN:REPCI:RC:ENCLREADS:FLNKREADS:ML:INS:STDERR:QEXP	1/1:70:1:3,3:3-3,3-3:34,36,0,0:3,34:NULL:402.1:500.352,50.2278:0,0:-1,-1,-1
